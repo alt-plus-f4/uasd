@@ -1,30 +1,37 @@
-//#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "list.h"
 
 int main() {
-  /*struct list_node_t n1 = {5, NULL};
-  struct list_node_t n2;
-  n2.value = 7;
-  n2.next = NULL;
-
-  //printf("%d\n", n1.value);
-
-  struct list_node_t n3 = {18, NULL};
-
-  n1.next = &n2;
-  n2.next = &n3;
-
-  print_list(&n1);*/
-
   struct list_node_t *list = NULL;
 
-  list = push_back(list, 10);
-  list = push_back(list, 15);
-  list = push_back(list, 20);
+  list = push_back(list, 10);  //
+  list = push_back(list, 15);  //
+  list = push_back(list, 69);  //
+  list = push_back(list, 150); //
 
   print_list(list);
 
+  contains(list, 15) ? printf("Found\n") : printf("Not found\n");
+  printf("%d\n", get_size(list));
+
+  list = pop_front(list);
+  list = pop_back(list);
+
+  print_list(list);
+  printf("\nInsert\n");
+
+  list = insert(list, 42, 0);
+  print_list(list);
+  printf("\nRemove\n");
+
+  remove_item(list, 2);
+  print_list(list);
+  printf("\n");
+
+
   return 0;
 }
+
+// End of code... enjoy :)
