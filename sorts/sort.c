@@ -5,82 +5,71 @@
 #include "sort.h"
 
 void bble_sort(int *arr, unsigned int len) {
-  puts("Bubble sort start");
-
   int has_swaped = 1;
 
   while (has_swaped) {
     has_swaped = 0;
 
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len - 1; i++) {
       if (arr[i] > arr[i + 1]) {
-        int temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
+        swap(&arr[i], &arr[i + 1]);
         has_swaped++;
       }
     }
   }
-  puts("Bubble sort end");
+  puts("\nBubble sort:\n");
 }
 
 void bble_sort_v2(int *arr, unsigned int size) {
-  puts("Bubble sort v2 start");
-
   for (int i = 0; i < size - 1; i++) {
     for (int j = i + 1; j < size; j++) {
-      printf("compare arr[%d]=%d with arr[%d]=%d\n", i, arr[i], j, arr[j]);
-
-      if (arr[i] > arr[j]) {
-        printf("swap %d with %d\n", arr[i], arr[j]);
-
+      if (arr[i] > arr[j]) 
         swap(arr + i, arr + j);
-      }
     }
   }
 
-  puts("Bubble sort v2 end");
+  puts("\nBubble sort v2 end:\n");
 }
 
 void merge_sort(int *arr, unsigned int size) {
-  puts("Merge sort start");
-
   for (int i = 0; i < 4; i++) {
     for (int j = i + 1; j < 5; j++) {
-      printf("compare %d with %d\n", arr[i], arr[j]);
-      if (arr[i] > arr[j]) {
-        printf("swap %d with %d\n", arr[i], arr[j]);
+      if (arr[i] > arr[j])
         swap(arr + i, arr + j);
-      }
     }
   }
   for (int i = 5; i < 9; i++) {
     for (int j = i + 1; j < 10; j++) {
-      printf("compare %d with %d\n", arr[i], arr[j]);
-      if (arr[i] > arr[j]) {
-        printf("swap %d with %d\n", arr[i], arr[j]);
+      if (arr[i] > arr[j])
         swap(arr + i, arr + j);
-      }
     }
   }
-  puts("Merge sort end");
+  puts("\nMerge sort end:\n");
 }
 
-int random_int() {  
-  	srand(time(NULL));
-  	return (rand() % 100);
+void quick_sort(int* arr, unsigned int len){
+  int pivot_index = len / 2;
+
+  for(int i = 0; i < pivot_index; i++){
+    if(arr[i] > arr[pivot_index]){
+      puts("move");
+    }
+  }
+  
+  puts("\nQuick Sort end\n");
 }
 
-int *rng_arr(int *arr, int len) {
-  	arr = (int*)malloc(sizeof(int) * len);
+int* rng_arr(int *arr, unsigned int len) {
+  	arr = (int*)calloc(sizeof(int), len);
+  	srand(2);
     
-	for (int i = 0; i < len; i++)
-		arr[i] = random_int();
+    for (int i = 0; i < len; i++)
+      arr[i] = random_int();
 
- 	return arr;
+ 	  return arr;
 }
 
-void print(int *arr, int len) {
+void print(int *arr, unsigned int len) {
   for (int i = 0; i < len; i++)
     printf("[%d] %d\n", i, arr[i]);
 }
@@ -90,5 +79,10 @@ void swap(int *a, int *b) {
   *a = *b;
   *b = c;
 }
+
+int random_int() {  
+  	return (rand() % 100);
+}
+
 
 // End of code... enjoy :)

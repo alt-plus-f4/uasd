@@ -5,23 +5,25 @@
 #include "sort.h"
 
 int main() {
-  int *arr = rng_arr(arr, 5);
-  int len = (sizeof(arr) / sizeof(int));
-
-  print(arr, len);
+  int *arr = rng_arr(arr, 5); // New array
+  int len = 5;
 
   bble_sort(arr, len);
   print(arr, len);
+  
+  free(arr);
+  arr = rng_arr(arr, len); // New array
 
-  arr = rng_arr(arr, len);
-  print(arr, len);
   bble_sort_v2(arr, len);
   print(arr, len);
 
-  arr = rng_arr(arr, len);
-  print(arr, len);
+  free(arr);
+  arr = rng_arr(arr, len); // New array
+
   merge_sort(arr, len);
   print(arr, len);
+
+  free(arr);
 
   return 0;
 }
