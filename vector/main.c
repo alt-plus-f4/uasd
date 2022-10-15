@@ -5,6 +5,7 @@
 
 int main() {
   struct Vector* vector = init();
+  struct Vector* vector_2 = init();
 
   printf("%d\n", vector->capacity);
 
@@ -41,6 +42,24 @@ int main() {
   remove_at_index(vector, 0);
   print_data(*vector);
   printf("\n");
+
+  clear(vector);
+  print_data(*vector);
+
+  destroy(vector);
+  // print_data(*vector); random s*values*hit
+
+  vector = init();
+
+  insert(vector_2, 10);
+  insert(vector_2, 11);
+  insert(vector_2, 22);
+
+  print_data(*vector_2);
+
+  vector = merge(vector, vector_2);
+
+  print_data(*vector);
 
   return 0;
 }

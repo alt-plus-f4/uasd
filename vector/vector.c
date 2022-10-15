@@ -93,6 +93,32 @@ void remove_at_index(struct Vector* vector, int index){
         vector->data[i] = temp[i];
     }
 }
+void clear(struct Vector* vector){
+    for(int i = 0; i < vector->size; i++)
+        vector->data[i] = 0;
+}
+void destroy(struct Vector* vector){
+    for(int i = 0; i < vector->size; i++)
+        vector->data[i] = 0;
+    free(vector->data);
+    free(vector);
+}
+struct Vector* merge(struct Vector* vector_1, struct Vector* vector_2){
+    int sizeofvect = vector_1->size + vector_2->size;
+    struct Vector* mrg_vector = init();
+
+    while(mrg_vector->capacity < sizeofvect)
+        resize(mrg_vector);
+
+    for(int i = 0; i < vector_1->size; i++)
+        mrg_vector->data[i] = vector_1->data[i];
+
+    for(int i = vector_1->size; i < sizeofvect; i++)
+        mrg_vector->data[i] = vector_2->data[i];
+
+    return mrg_vector;
+
+}
 int get_value_by_index(struct Vector* vector, int index){
     if(index > vector->size - 1)
         return -1;
