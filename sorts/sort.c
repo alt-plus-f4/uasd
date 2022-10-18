@@ -19,7 +19,6 @@ void bble_sort(int *arr, unsigned int len) {
   }
   puts("\nBubble sort:\n");
 }
-
 void bble_sort_v2(int *arr, unsigned int size) {
   for (int i = 0; i < size - 1; i++) {
     for (int j = i + 1; j < size; j++) {
@@ -30,7 +29,6 @@ void bble_sort_v2(int *arr, unsigned int size) {
 
   puts("\nBubble sort v2 end:\n");
 }
-
 void merge_sort(int *arr, unsigned int size) {
   for (int i = 0; i < 4; i++) {
     for (int j = i + 1; j < 5; j++) {
@@ -46,7 +44,6 @@ void merge_sort(int *arr, unsigned int size) {
   }
   puts("\nMerge sort end:\n");
 }
-
 void quick_sort(int* arr, unsigned int len){
   int pivot_index = len / 2;
 
@@ -58,7 +55,6 @@ void quick_sort(int* arr, unsigned int len){
   
   puts("\nQuick Sort end\n");
 }
-
 int* rng_arr(int *arr, unsigned int len) {
   	arr = (int*)calloc(sizeof(int), len);
   	srand(2);
@@ -68,21 +64,17 @@ int* rng_arr(int *arr, unsigned int len) {
 
  	  return arr;
 }
-
 void print(int *arr, unsigned int len) {
   for (int i = 0; i < len; i++)
     printf("[%d] %d\n", i, arr[i]);
 }
-
 void swap(int *a, int *b) {
   int c = *a;
   *a = *b;
   *b = c;
 }
-
 int random_int() {  
   	return (rand() % 100);
 }
-
 
 // End of code... enjoy :)

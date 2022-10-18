@@ -2,6 +2,8 @@
     "files.associations": {
         "bble_sort.h": "c",
         "stdio.h": "c",
-        "sort.h": "c"
+        "sort.h": "c",
+        "list.h": "c",
+        "merge.h": "c"
     }
 }
